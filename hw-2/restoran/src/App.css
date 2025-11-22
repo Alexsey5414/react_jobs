@@ -1,0 +1,50 @@
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.restaurant {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #f9f9f9;
+}
+
+.restaurant h2 {
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+}
+
+.restaurant h3 {
+  color: #555;
+  margin: 15px 0 10px 0;
+}
+
+.restaurant ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ .restaurant li {
+  margin: 5px 0;
+  padding: 3px 5px;
+  border-radius: 4px;
+} 
+
+.user-container
+{
+  display: grid; 
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 5px;  
+}
+
+.user-container div:last-child
+{
+  text-align: right; 
+}
+
