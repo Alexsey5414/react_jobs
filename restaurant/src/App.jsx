@@ -1,40 +1,39 @@
-import { useState } from "react";
 import "./App.css";
-import Footer from "./components/Footer/footer";
-import Header from "./components/Header/header";
-import Main from "./components/Main/main";
 import { restaurants } from "./service/restaurants";
-import TabPanel from "./components/RestaurantTabs/TabPanel/tabs";
-import RestaurantContent from "./components/RestaurantContent/restaurant-content";
-import ScrollProgressBar from "./components/ScrollProgressBar/scroll-progress-bar";
 
 function App() {
-  const [activeRestaurantId, setActiveRestaurantId] = useState(
-    restaurants[0].id
-  );
-
-  const activeRestaurant = restaurants.find(
-    ({ id }) => id === activeRestaurantId
-  );
-  const handlerTabClick = (id) => {
-    if (activeRestaurantId === id) return;
-
-    setActiveRestaurantId(id);
-  };
-
   return (
-    <div className="app">
-      <Header />
-      <ScrollProgressBar />
-      <Main>
-        <TabPanel
-          restaurants={restaurants}
-          activeRestaurant={activeRestaurant}
-          onTabClick={handlerTabClick}
-        />
-        <RestaurantContent restaurant={activeRestaurant} />
-      </Main>
-      <Footer />
+    <div className="main-content">
+      <h1>Список ресторанов!</h1>
+      {restaurants.map((rest) => (
+        <div key={rest.id} className="restaurant">
+          <h2>{rest.name}</h2>
+          <h3>Меню</h3>
+          <div className="menu-restaurant">
+            <ul>
+              {rest.menu.map((menu) => (
+                <li key={menu.id}>
+                  {menu.name} ({menu.ingredients.join(", ")})
+                </li>
+              ))}
+            </ul>
+          </div>
+          <h3>Отзывы</h3>
+          <div className="menu-review">
+            <ul>
+              {rest.reviews.map((review) => (
+                <li key={review.id}>
+                  <div className="user-container">
+                    <div> {review.user}</div>
+                    <div> {review.text}</div>
+                    <div> {review.rating}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
