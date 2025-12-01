@@ -1,39 +1,27 @@
+import { useState } from "react";
 import "./App.css";
+import Footer from "./components/Footer/footer";
+import Header from "./components/Header/header";
+import Main from "./components/Main/main";
 import { restaurants } from "./service/restaurants";
+import NavigateTabs from "./components/Tabs/tabs";
+import RestaurantContent from "./components/Content/content";
 
 function App() {
+  const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
+  const handlerTabClick = (restaurant) => setActiveRestaurant(restaurant);
   return (
-    <div className="main-content">
-      <h1>Список ресторанов!</h1>
-      {restaurants.map((rest) => (
-        <div key={rest.id} className="restaurant">
-          <h2>{rest.name}</h2>
-          <h3>Меню</h3>
-          <div className="menu-restaurant">
-            <ul>
-              {rest.menu.map((menu) => (
-                <li key={menu.id}>
-                  {menu.name} ({menu.ingredients.join(", ")})
-                </li>
-              ))}
-            </ul>
-          </div>
-          <h3>Отзывы</h3>
-          <div className="menu-review">
-            <ul>
-              {rest.reviews.map((review) => (
-                <li key={review.id}>
-                  <div className="user-container">
-                    <div> {review.user}</div>
-                    <div> {review.text}</div>
-                    <div> {review.rating}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      ))}
+    <div className="app">
+      <Header />
+      <Main>
+        <NavigateTabs
+          restaurants={restaurants}
+          activeRestaurant={activeRestaurant}
+          onTabClick={handlerTabClick}
+        />
+        <RestaurantContent restaurant={activeRestaurant} />
+      </Main>
+      <Footer />
     </div>
   );
 }
