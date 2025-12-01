@@ -1,0 +1,44 @@
+.menu-items {
+    display: grid;
+    gap: 0.6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* border-left: 4px solid #667eea; */
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.item-name {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    font-weight: 600;
+    margin: 0;
+}
+
+.item-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #667eea;
+    background: #f8f8f8;
+    /* padding: 03rem 0.8rem; */
+    border-radius: 20px;
+}
+
+.item-ingredients {
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
