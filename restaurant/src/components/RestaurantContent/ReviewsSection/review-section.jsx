@@ -1,13 +1,12 @@
 import React from "react";
 import ReviewItem from "./ReviewItem/review-item";
-import "./review-section.css";
 /* eslint-disable react/prop-types */
 const ReviewsSection = ({ reviews }) => {
   return (
-    <section className="reviews-section">
+    <section>
       <h3 className="section-title">Отзывы</h3>
-      <div className="review-divider"></div>
-      <div className="reviews-list">
+      <div className="divider"></div>
+      <div className="section-items">
         {reviews.map((review) => (
           <ReviewItem key={review.id} review={review} />
         ))}

@@ -1,4 +1,4 @@
-.review-rating-count-control {
+.count-control {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,13 +7,13 @@
     border-top: 1px solid #e9ecef;
 }
 
-.review-rating-count-section {
+.count-section {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.review-rating-count-label {
+.count-label {
     font-weight: 500;
     color: #555;
 }

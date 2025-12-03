@@ -1,7 +1,7 @@
 import React from "react";
 import QuantityButtons from "../../../common/QuantityButtons/quantity-buttons";
 import TotalPrice from "../TotalPrice/dish-total-price";
-import "./dish-count.css";
+import styles from "./dish-count.module.css";
 /* eslint-disable react/prop-types */
 const DishCount = ({
   quantity,
@@ -14,9 +14,10 @@ const DishCount = ({
   const totalPrice = (price * quantity).toFixed(2);
 
   return (
-    <div className="dish-count-control">
-      <div className="dish-count-section">
-        <span className="dish-count-label">Количество:</span>
+    <div className= {styles['count-control']} >   
+     
+      <div className={styles['count-section']}>
+        <span className={styles['count-label']}>Количество:</span>
         <QuantityButtons
           quantity={quantity}
           minLimit={minLimit}
