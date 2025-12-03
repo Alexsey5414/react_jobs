@@ -1,0 +1,16 @@
+.section {
+    margin-bottom: 1rem;
+}
+
+.section-header {
+    margin-bottom: 1.5rem;
+}
+
+.section-items {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+
+

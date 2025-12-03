@@ -1,6 +1,6 @@
 import React from "react";
 import QuantityButtons from "../../../common/QuantityButtons/quantity-buttons";
-import "./review-rating-count.css";
+import styles from './review-rating-count.module.css';
 /* eslint-disable react/prop-types */
 const ReviewRatingCount = ({
   quantity,
@@ -10,9 +10,9 @@ const ReviewRatingCount = ({
   onDecrease,
 }) => {
   return (
-    <div className="review-rating-count-control">
-      <div className="review-rating-count-section">
-        <span className="review-rating-count-label">Рэйтинг:</span>
+    <div className={styles['count-control']}>
+      <div className={styles['count-section']}>
+        <span className={styles['count-label']}>Рэйтинг:</span>
         <QuantityButtons
           quantity={quantity}
           minLimit={minLimit}
