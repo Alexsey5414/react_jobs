@@ -14,10 +14,9 @@ const DishCount = ({
   const totalPrice = (price * quantity).toFixed(2);
 
   return (
-    <div className= {styles['count-control']} >   
-     
-      <div className={styles['count-section']}>
-        <span className={styles['count-label']}>Количество:</span>
+    <div className={styles["count-control"]}>
+      <div className={styles["count-section"]}>
+        <span className={styles["count-label"]}>Количество:</span>
         <QuantityButtons
           quantity={quantity}
           minLimit={minLimit}

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./tabs.css";
 import TabButton from "../TabButton/tab-button";
+import { ThemeContext } from "../../context/theme-context";
+
+/* eslint-disable react/prop-types */
 
 const TabPanel = ({ restaurants, activeRestaurant, onTabClick }) => {
+  const {theme} = useContext(ThemeContext);
   return (
     <div className="tabs-container">
       <nav className="tabs-nav">
@@ -12,6 +16,7 @@ const TabPanel = ({ restaurants, activeRestaurant, onTabClick }) => {
             restaurant={restaurant}
             isActive={activeRestaurant.id === restaurant.id}
             onClick={onTabClick}
+            theme={theme}
           />
         ))}
       </nav>

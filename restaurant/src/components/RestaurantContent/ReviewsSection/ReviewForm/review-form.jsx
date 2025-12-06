@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   useReviewForm,
   UPDATE_USER_ACTION,
@@ -8,10 +8,12 @@ import {
 } from "./use-from";
 
 import ReviewRatingCount from "../ReviewRatingCount/review-rating-count";
+import { AuthContext } from "../../../context/auth-context";
 import "./review-form.css";
 
 const ReviewForm = () => {
   const { user, text, rating, dispatch } = useReviewForm();
+  const { userAuth } = useContext(AuthContext);
   const minLimit = 0;
   const maxLimit = 5;
 
@@ -72,15 +74,17 @@ const ReviewForm = () => {
             required
           />
         </div>
-        <div className="form-field">
-          <ReviewRatingCount
-            quantity={rating}
-            minLimit={minLimit}
-            maxLimit={maxLimit}
-            onIncrease={(e) => increaseRating(e)}
-            onDecrease={(e) => decreaseRating(e)}
-          />
-        </div>
+        {userAuth.username && (
+          <div className="form-field">
+            <ReviewRatingCount
+              quantity={rating}
+              minLimit={minLimit}
+              maxLimit={maxLimit}
+              onIncrease={(e) => increaseRating(e)}
+              onDecrease={(e) => decreaseRating(e)}
+            />
+          </div>
+        )}
         {/* Кнопки */}
         <div className="form-buttons">
           <button

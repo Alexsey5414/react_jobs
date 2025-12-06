@@ -1,11 +1,16 @@
 import React from "react";
-import "./tab-button.css";
+import styles from './tab-button.module.css';
 import classNames from "classnames";
-
-const TabButton = ({ restaurant, isActive, onClick }) => {
+/* eslint-disable react/prop-types */
+const TabButton = ({ restaurant, isActive, onClick, theme }) => {
   return (
     <button
-      className= {classNames('tab-button', {'active':  isActive})}
+      className= {classNames(styles.tabButton,{
+                             [styles.active]:  isActive, 
+                             [styles.light]: theme ==="light", 
+                             [styles.dark]: theme ==="dark"} 
+                           
+                       )}
       onClick={() => onClick(restaurant.id)}
     >
       {restaurant.name}

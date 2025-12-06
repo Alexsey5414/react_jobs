@@ -1,4 +1,4 @@
-.tab-button {
+.tabButton {
     padding: 0.75rem 1.5rem;
     border: none;
     background: #f8f9fa;
@@ -12,12 +12,19 @@
     border: 2px solid transparent;
 }
 
-.tab-button:hover {
+.tabButton:hover {
     background: #e9ecef;
     transform: translateY(-2px);
 }
 
-.tab-button.active {
+.tabButton.active.light {
+    background: #8ddf19;
+    color: white;
+    border-color: #8ddf19;;
+    box-shadow: 0 4px 15px rgba(111, 177, 82, 0.3);
+}
+
+.tabButton.active.dark {
     background: #667eea;
     color: white;
     border-color: #667eea;
