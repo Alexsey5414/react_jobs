@@ -1,13 +1,12 @@
 import React, { useState, useContext } from "react";
 import DishHeader from "../DishHeader/dish-header";
 import DishCount from "../DishCount/dish-count";
-import { AuthContext } from "../../../context/auth-context";
+import { AuthContext } from "../../../context";
 import "./dish.css";
 
-/* eslint-disable react/prop-types */
 const Dish = ({ dish }) => {
   const [quantity, setQuantity] = useState(0);
-  const { userAuth } = useContext(AuthContext);
+  const userAuth = useContext(AuthContext);
   const minLimit = 0;
   const maxLimit = 10;
 

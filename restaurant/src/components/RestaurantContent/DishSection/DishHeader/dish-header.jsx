@@ -1,6 +1,6 @@
 import React from "react";
 import "./dish-header.css";
-/* eslint-disable react/prop-types */
+
 const DishHeader = ({ name, price, ingredients }) => {
   return (
     <div className="dish-header">

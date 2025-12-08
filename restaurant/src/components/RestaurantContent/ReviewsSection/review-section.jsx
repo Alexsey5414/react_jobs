@@ -1,6 +1,6 @@
 import React from "react";
 import ReviewItem from "./ReviewItem/review-item";
-/* eslint-disable react/prop-types */
+
 const ReviewsSection = ({ reviews }) => {
   return (
     <section>

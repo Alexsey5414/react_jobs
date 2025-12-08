@@ -1,6 +1,6 @@
 import React from "react";
 import Dish from "./Dish/dish";
-/* eslint-disable react/prop-types */
+
 const DishSection = ({ menu }) => {
   return (
     <section>

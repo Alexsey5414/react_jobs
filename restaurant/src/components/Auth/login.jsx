@@ -1,23 +1,20 @@
 import React, { useContext } from "react";
-import styles from "./auth.module.css";
-import { AuthContext } from "../context/auth-context";
+import { ToggleAuthContext, AuthContext } from "../context";
+import Button from "../Button/button";
 
 const userinfo = { username: "golubev" };
 
 const LoginButton = () => {
-  const { userAuth, setUserAuth } = useContext(AuthContext);
-  //const action = useMemo(()=> ({ setUserAuth }), [setUserAuth]);
-
+  const { setUserAuth } = useContext(ToggleAuthContext);
+  const userAuth = useContext(AuthContext);
   return (
-    <button
-      className={styles.Button}
+    <Button
+      title={userAuth.username ? userAuth.username : "Войти"}
+      focused={true}
       onClick={() => {
         setUserAuth(userinfo);
       }}
-    >
-      {console.log("userAuth.username", userAuth.username)}
-      {userAuth.username ? userAuth.username : "Войти"}
-    </button>
+    />
   );
 };
 
