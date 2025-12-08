@@ -1,19 +1,18 @@
 import React, { useContext } from "react";
-import styles from "./auth.module.css";
-import { AuthContext } from "../context/auth-context";
+import { ToggleAuthContext } from "../context";
+import Button from "../Button/button";
 
 const LogoutButton = () => {
-  const { setUserAuth } = useContext(AuthContext);
+  const { setUserAuth } = useContext(ToggleAuthContext);
 
   return (
-    <button
-      className={styles.Button}
+    <Button
+      title={"Выйти"}
+      focused={true}
       onClick={() => {
         setUserAuth({ username: null });
       }}
-    >
-      {"Выйти"}
-    </button>
+    />
   );
 };
 

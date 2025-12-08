@@ -2,7 +2,7 @@ import React from "react";
 import QuantityButtons from "../../../common/QuantityButtons/quantity-buttons";
 import TotalPrice from "../TotalPrice/dish-total-price";
 import styles from "./dish-count.module.css";
-/* eslint-disable react/prop-types */
+
 const DishCount = ({
   quantity,
   minLimit,

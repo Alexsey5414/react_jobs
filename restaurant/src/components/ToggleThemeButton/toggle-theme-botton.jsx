@@ -1,19 +1,18 @@
-import React, { useContext } from "react"
-import styles from './toggle-theme-botton.module.css';
-import { ThemeContext } from "../context/theme-context";
+import React, { useContext } from "react";
+import { ToggleThemeContext } from "../context";
+import Button from "../Button/button";
 
-
-const ToggleThemeButton = ()=>
-{
-         const {setTheme} = useContext(ThemeContext);
-    return (
-   
-     <button className={styles.Button} onClick={()=>setTheme((theme)=>(theme ==='light'? 'dark': 'light'))}>
-       Сменить тему
-     </button>        
-
-
-    );
-}
+const ToggleThemeButton = () => {
+  const setTheme = useContext(ToggleThemeContext);
+  return (
+    <Button
+      title={"Сменить тему"}
+      focused={true}
+      onClick={() =>
+        setTheme((theme) => (theme === "light" ? "dark" : "light"))
+      }
+    />
+  );
+};
 
 export default ToggleThemeButton;

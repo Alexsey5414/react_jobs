@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./quantity-buttons.module.css";
 import classNames from "classnames/bind";
-/* eslint-disable react/prop-types */
 const QuantityButtons = ({
   quantity,
   minLimit,
@@ -9,21 +8,19 @@ const QuantityButtons = ({
   onIncrease,
   onDecrease,
 }) => {
-
-
   return (
-    <div className={styles['quantity-buttons']}>
+    <div className={styles["quantity-buttons"]}>
       <button
-        className= {classNames(styles['quantity-btn'], styles['decrease'])}
+        className={classNames(styles["quantity-btn"], styles["decrease"])}
         //"quantity-btn decrease"
         onClick={onDecrease}
         disabled={quantity === minLimit}
       >
         -
       </button>
-      <span className={styles['quantity-display']}>{quantity}</span>
+      <span className={styles["quantity-display"]}>{quantity}</span>
       <button
-        className={classNames(styles['quantity-btn'], styles.increase)}
+        className={classNames(styles["quantity-btn"], styles.increase)}
         onClick={onIncrease}
         disabled={quantity === maxLimit}
       >

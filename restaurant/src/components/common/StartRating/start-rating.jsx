@@ -1,5 +1,5 @@
 import React from "react";
-/* eslint-disable react/prop-types */
+
 const StarRating = ({ rating }) => {
   const renderStars = (rating) => {
     return "★".repeat(rating) + "☆".repeat(5 - rating);

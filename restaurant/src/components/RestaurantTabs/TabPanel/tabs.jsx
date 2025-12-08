@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import "./tabs.css";
 import TabButton from "../TabButton/tab-button";
-import { ThemeContext } from "../../context/theme-context";
-
-/* eslint-disable react/prop-types */
+import { ThemeContext } from "../../context";
 
 const TabPanel = ({ restaurants, activeRestaurant, onTabClick }) => {
-  const {theme} = useContext(ThemeContext);
+  const theme = useContext(ThemeContext);
   return (
     <div className="tabs-container">
       <nav className="tabs-nav">

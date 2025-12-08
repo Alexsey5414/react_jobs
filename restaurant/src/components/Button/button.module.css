@@ -17,4 +17,16 @@
     transform: translateY(-2px);
 }
 
+.Button.active.light {
+    background: #8ddf19;
+    color: white;
+    border-color: #8ddf19;;
+    box-shadow: 0 4px 15px rgba(111, 177, 82, 0.3);
+}
 
+.Button.active.dark {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}

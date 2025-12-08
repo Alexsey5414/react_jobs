@@ -8,12 +8,12 @@ import {
 } from "./use-from";
 
 import ReviewRatingCount from "../ReviewRatingCount/review-rating-count";
-import { AuthContext } from "../../../context/auth-context";
+import { AuthContext } from "../../../context";
 import "./review-form.css";
 
 const ReviewForm = () => {
   const { user, text, rating, dispatch } = useReviewForm();
-  const { userAuth } = useContext(AuthContext);
+  const userAuth = useContext(AuthContext);
   const minLimit = 0;
   const maxLimit = 5;
 

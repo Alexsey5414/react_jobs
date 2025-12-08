@@ -1,7 +1,7 @@
 import React from "react";
 import StarRating from "../../../common/StartRating/start-rating";
 import "./review-item.css";
-/* eslint-disable react/prop-types */
+
 const ReviewItem = ({ review }) => {
   return (
     <div className="review-item">
