@@ -12,7 +12,7 @@ const RestaurantContent = ({ restaurant }) => {
 
   return (
     <div className="restaurant-content">
-      <RestaurantHeader restaurant={restaurant} />
+      <RestaurantHeader reviews={restaurant.reviews} name={restaurant.name} />
       <DishSection menu={restaurant.menu} />
       <ReviewsSection reviews={restaurant.reviews} />
       <ReviewForm />

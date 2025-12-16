@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { restaurants } from "./../../service/restaurants";
+//import { restaurants } from "./../../service/restaurants";
 import TabPanel from "../RestaurantTabs/TabPanel/tabs";
-import RestaurantContent from "../RestaurantContent/restaurant-content";
+import { RestaurantContainer } from "./RestaurantContainer";
+import { useSelector } from "react-redux";
+import { selectRestaurantIds } from "../../redux/entities/restaurants/slice";
 
 const Restaurant = () => {
+  const restaurantIds = useSelector(selectRestaurantIds);
   const [activeRestaurantId, setActiveRestaurantId] = useState(
-    restaurants[0].id
+    restaurantIds[0]
   );
 
-  const activeRestaurant = restaurants.find(
-    ({ id }) => id === activeRestaurantId
-  );
   const handlerTabClick = (id) => {
     if (activeRestaurantId === id) return;
 
@@ -18,12 +18,20 @@ const Restaurant = () => {
   };
   return (
     <>
-      <TabPanel
-        restaurants={restaurants}
-        activeRestaurant={activeRestaurant}
-        onTabClick={handlerTabClick}
-      />
-      <RestaurantContent restaurant={activeRestaurant} />
+      {activeRestaurantId && (
+        <>
+          <TabPanel
+            restaurantIds={restaurantIds}
+            activeRestaurantId={activeRestaurantId}
+            onTabClick={handlerTabClick}
+          />
+
+          <RestaurantContainer
+            key={activeRestaurantId}
+            activeRestaurantId={activeRestaurantId}
+          />
+        </>
+      )}
     </>
   );
 };

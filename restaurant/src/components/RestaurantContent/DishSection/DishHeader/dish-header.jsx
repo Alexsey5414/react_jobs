@@ -7,7 +7,7 @@ const DishHeader = ({ name, price, ingredients }) => {
       <div className="dish-info">
         <h4 className="dish-name">{name}</h4>
         <div className="dish-ingredients">
-          <strong>Ingredients:</strong> {ingredients.join(", ")}
+          <strong>Ingredients:</strong> {ingredients?.join(", ")}
         </div>
       </div>
       <div className="dish-price">₽{price}</div>

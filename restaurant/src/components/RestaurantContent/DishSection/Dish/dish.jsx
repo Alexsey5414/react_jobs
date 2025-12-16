@@ -1,26 +1,21 @@
-import React, { useState, useContext } from "react";
 import DishHeader from "../DishHeader/dish-header";
 import DishCount from "../DishCount/dish-count";
 import { AuthContext } from "../../../context";
 import "./dish.css";
+import { selectDishById } from "../../../../redux/entities/dishes/slice";
+import { useSelector } from "react-redux";
+import { useCount } from "./use-count";
+import { useContext } from "react";
 
-const Dish = ({ dish }) => {
-  const [quantity, setQuantity] = useState(0);
+const Dish = ({ dishId }) => {
+  const dish = useSelector((state) => selectDishById(state, dishId));
+  if (!dish) return null;
+
+  const { quantity, increment, decrement } = useCount(dishId);
+
   const userAuth = useContext(AuthContext);
   const minLimit = 0;
   const maxLimit = 10;
-
-  const increaseQuantity = () => {
-    if (quantity < maxLimit) {
-      setQuantity(quantity + 1);
-    }
-  };
-
-  const decreaseQuantity = () => {
-    if (quantity > minLimit) {
-      setQuantity(quantity - 1);
-    }
-  };
 
   return (
     <div className="dish">
@@ -35,8 +30,8 @@ const Dish = ({ dish }) => {
           minLimit={minLimit}
           maxLimit={maxLimit}
           price={dish.price}
-          onIncrease={increaseQuantity}
-          onDecrease={decreaseQuantity}
+          onIncrease={increment}
+          onDecrease={decrement}
         />
       )}
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Dish from "./Dish/dish";
 
-const DishSection = ({ menu }) => {
+const DishSection = ({ menuIds }) => {
   return (
     <section>
       <div className="section-header">
@@ -9,8 +9,8 @@ const DishSection = ({ menu }) => {
       </div>
 
       <div className="section-items">
-        {menu.map((dish) => (
-          <Dish key={dish.id} dish={dish} />
+        {menuIds.map((id) => (
+          <Dish key={id} dishId={id} />
         ))}
       </div>
     </section>
