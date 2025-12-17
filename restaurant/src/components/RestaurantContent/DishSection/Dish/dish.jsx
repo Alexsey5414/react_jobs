@@ -20,6 +20,7 @@ const Dish = ({ dishId }) => {
   return (
     <div className="dish">
       <DishHeader
+        id={dishId}
         name={dish.name}
         price={dish.price}
         ingredients={dish.ingredients}
