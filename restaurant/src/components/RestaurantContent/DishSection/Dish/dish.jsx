@@ -9,11 +9,11 @@ import { useContext } from "react";
 
 const Dish = ({ dishId }) => {
   const dish = useSelector((state) => selectDishById(state, dishId));
-  if (!dish) return null;
-
   const { quantity, increment, decrement } = useCount(dishId);
-
   const userAuth = useContext(AuthContext);
+
+  if (!dish) return null;
+  if (!userAuth) return null;
   const minLimit = 0;
   const maxLimit = 10;
 

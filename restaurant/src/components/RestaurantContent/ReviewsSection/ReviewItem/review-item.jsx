@@ -7,11 +7,10 @@ import { useSelector } from "react-redux";
 
 const ReviewItem = ({ reviewId }) => {
   const review = useSelector((state) => selectReviewById(state, reviewId));
-  if (!review) return null;
 
-  const user = useSelector((state) => selectUserById(state, review.userId));
+  const user = useSelector((state) => selectUserById(state, review?.userId));
   if (!user) return null;
-
+  if (!review) return null;
   return (
     <div className="review-item">
       <div className="review-header">
