@@ -6,8 +6,9 @@ import LogoutButton from "../Auth/logout";
 import ScrollProgressBar from "../ScrollProgressBar/scroll-progress-bar";
 import Main from "../Main/main";
 import Footer from "../Footer/footer";
+import { Outlet } from "react-router";
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <>
       <Header>
@@ -16,7 +17,9 @@ const Layout = ({ children }) => {
         <LogoutButton />
       </Header>
       <ScrollProgressBar />
-      <Main>{children}</Main>
+      <Main>
+        <Outlet />
+      </Main>
       <Footer />
     </>
   );

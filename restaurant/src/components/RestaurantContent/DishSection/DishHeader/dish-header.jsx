@@ -1,16 +1,25 @@
 import React from "react";
-import "./dish-header.css";
+import { NavLink } from "react-router";
+import styles from "./dish-header.module.css";
+import classNames from "classnames";
 
-const DishHeader = ({ name, price, ingredients }) => {
+const DishHeader = ({ id, name, price, ingredients }) => {
   return (
-    <div className="dish-header">
-      <div className="dish-info">
-        <h4 className="dish-name">{name}</h4>
-        <div className="dish-ingredients">
+    <div className={styles.dishHeader}>
+      <div className={styles.dishInfo}>
+        <NavLink
+          to={`/dish/${id}`}
+          className={({ isActive }) =>
+            classNames(styles.navLinkH2, { [styles["active"]]: isActive })
+          }
+        >
+          {name}
+        </NavLink>
+        <div className={styles.dishIngredients}>
           <strong>Ingredients:</strong> {ingredients?.join(", ")}
         </div>
       </div>
-      <div className="dish-price">₽{price}</div>
+      <div className={styles.dishPrice}>₽{price}</div>
     </div>
   );
 };

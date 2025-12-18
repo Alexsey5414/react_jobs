@@ -1,0 +1,54 @@
+.dishHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.dishInfo {
+    flex: 1;
+}
+
+.dishName {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.dishIngredients {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.dishPrice {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #667eea;
+    background: #f8f9ff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-left: 1rem;
+}
+.navLinkH2 {
+  font-size: 1.75rem; /* Размер как у H2 */
+  font-weight: 600; /* Жирность как у H2 */
+  color: #333; /* Цвет как у H2 */
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+}
+
+/* Подсветка при наведении */
+.navLinkH2:hover {
+  color: #007bff; /* Меняем цвет при наведении */
+  background-color: #f8f9fa; /* Легкий фон */
+}
+
+/* Активная ссылка */
+.navLinkH2.active {
+  color: #0056b3; /* Темнее для активной */
+  border-bottom: 2px solid #0056b3; /* Подчеркивание */
+}

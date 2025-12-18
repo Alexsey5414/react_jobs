@@ -1,21 +1,18 @@
-/* eslint-disable react/prop-types */
-import React, { useCallback } from "react";
+import React from "react";
 import StarRating from "../../common/StartRating/start-rating";
-import { selectReviewById } from "../../../redux/entities/reviews/slice";
+import { selectReviewValues } from "../../../redux/entities/reviews/slice";
 import { useSelector } from "react-redux";
 
-const RestaurantHeader = ({ reviewIds, name }) => {
-  const selectReview = useCallback(
-    (reviewid) => useSelector((state) => selectReviewById(state, reviewid)),
-    [reviewIds]
-  );
-  if (!selectReview) return null;
+const RestaurantHeader = ({ name }) => {
+  const reviewValues = useSelector(selectReviewValues);
+
+  if (!reviewValues) return null;
 
   const averageRating =
-    reviewIds?.length > 0
+    reviewValues?.length > 0
       ? (
-          reviewIds.reduce((sum, id) => sum + selectReview(id).rating, 0) /
-          reviewIds.length
+          reviewValues.reduce((sum, review) => sum + review.rating, 0) /
+          reviewValues.length
         ).toFixed(1)
       : 0;
 
@@ -25,7 +22,7 @@ const RestaurantHeader = ({ reviewIds, name }) => {
       <div className="restaurant-rating">
         <StarRating rating={Math.round(averageRating)} />
         <span className="rating-text">
-          {averageRating} ({reviewIds.length} reviews)
+          {averageRating} ({reviewValues.length} reviews)
         </span>
       </div>
     </div>
