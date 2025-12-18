@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 
 const DishReviewLayout = () => {
   const { restaurantId } = useParams();
-  var navTabs = [
+  const navTabs = [
     { id: "dish", name: "Блюда", route: `/restaurants/${restaurantId}/dish` },
     {
       id: "review",
@@ -12,11 +12,7 @@ const DishReviewLayout = () => {
       route: `/restaurants/${restaurantId}/review`,
     },
   ];
-  return (
-    <>
-      <TabNavPanel listtabs={navTabs} />
-    </>
-  );
+  return <TabNavPanel listtabs={navTabs} />;
 };
 
 export default DishReviewLayout;

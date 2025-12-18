@@ -10,7 +10,7 @@ import { Route } from "react-router";
 import RestaurantPage from "./components/RestaurantPages/restaurant-page";
 import RestaurantLayout from "./components/RestaurantLayout/restaurant-layout";
 import HomePage from "./components/RestaurantPages/home-page";
-import { DishPage } from "./components/RestaurantPages/dish-page";
+import { MenuPage } from "./components/RestaurantPages/dish-page";
 import { ReviewPage } from "./components/RestaurantPages/review-page";
 import { DishNavigatePage } from "./components/RestaurantPages/dish-navigate-page";
 
@@ -28,7 +28,7 @@ function App() {
                   <Route path="/dish/:dishId" element={<DishNavigatePage />} />
                   <Route path="/restaurants" element={<RestaurantLayout />}>
                     <Route path=":restaurantId" element={<RestaurantPage />}>
-                      <Route path="dish" element={<DishPage />} />
+                      <Route path="dish" element={<MenuPage />} />
                       <Route path="review" element={<ReviewPage />} />
                     </Route>
                   </Route>

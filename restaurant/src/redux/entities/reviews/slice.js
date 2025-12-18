@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createSelector } from "@reduxjs/toolkit";
 import { normalizedReviews } from "../../../service/normalized-mock";
 
 const initialState = {
@@ -20,6 +20,17 @@ export const reviewSlice = createSlice({
     selectReviewEntities: (state) => state.entities,
   },
 });
+
+const selectReviewSlice = (state) => {
+  return state[reviewSlice.name];
+};
+
+export const selectReviewValues = createSelector(
+  [selectReviewSlice],
+  (reviewSlice) => {
+    return Object.values(reviewSlice.entities);
+  }
+);
 
 export const { selectReviewById, selectReviewIds, selectReviewEntities } =
   reviewSlice.selectors;

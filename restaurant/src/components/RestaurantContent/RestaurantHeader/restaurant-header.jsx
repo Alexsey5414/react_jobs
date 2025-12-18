@@ -1,20 +1,18 @@
 import React from "react";
 import StarRating from "../../common/StartRating/start-rating";
-import { selectReviewEntities } from "../../../redux/entities/reviews/slice";
+import { selectReviewValues } from "../../../redux/entities/reviews/slice";
 import { useSelector } from "react-redux";
 
-const RestaurantHeader = ({ reviewIds, name }) => {
-  const reviewEntities = useSelector((state) => selectReviewEntities(state));
+const RestaurantHeader = ({ name }) => {
+  const reviewValues = useSelector(selectReviewValues);
 
-  if (!reviewEntities) return null;
-
-  const reviews = reviewIds.map((id) => reviewEntities[id]);
+  if (!reviewValues) return null;
 
   const averageRating =
-    reviews?.length > 0
+    reviewValues?.length > 0
       ? (
-          reviews.reduce((sum, review) => sum + review.rating, 0) /
-          reviews.length
+          reviewValues.reduce((sum, review) => sum + review.rating, 0) /
+          reviewValues.length
         ).toFixed(1)
       : 0;
 
@@ -24,7 +22,7 @@ const RestaurantHeader = ({ reviewIds, name }) => {
       <div className="restaurant-rating">
         <StarRating rating={Math.round(averageRating)} />
         <span className="rating-text">
-          {averageRating} ({reviews.length} reviews)
+          {averageRating} ({reviewValues.length} reviews)
         </span>
       </div>
     </div>
