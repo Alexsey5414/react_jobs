@@ -1,5 +1,6 @@
 # dependencies
 /node_modules
+/restaurant/simple_api
 
 # build outputs
 /build
